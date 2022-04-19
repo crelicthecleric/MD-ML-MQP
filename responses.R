@@ -1,0 +1,50 @@
+library(MASS)
+library(tidyverse)
+library(leaps)
+
+base <- read.csv("csv/affected_exons.csv")
+diag <- read.csv("csv/diagnosis.csv", sep="\t")
+diag <- select(diag, "key", "Walked.Independently.Lost.Age")
+diag$Walked.Independently.Lost.Age <- diag$Walked.Independently.Lost.Age / 12
+walkage <- merge(base, diag, "key")
+bas_fits <- read.csv("csv/bas_fits.csv")
+bas_fits <- dplyr::select(bas_fits, "key", "k", "slope")
+bhl_fits <- read.csv("csv/bhl_fits.csv")
+bhl_fits <- dplyr::select(bhl_fits, "key", "k", "slope")
+bas <- merge(base, bas_fits, "key")
+bhl <- merge(base, bhl_fits, "key")
+bas <- dplyr::select(bas, -key, -Disease_Type, -slope)
+bhl <- dplyr::select(bhl, -key, -Disease_Type, -slope)
+walkage <- dplyr::select(walkage, -key, -Disease_Type)
+
+regfit_full <- regsubsets(k~., data=bas, really.big=T, method="forward", nvmax=79)
+reg_summary <- summary(regfit_full)
+
+par(mfrow = c(2,2))
+plot(reg_summary$rss, xlab = "Number of Parameters", ylab = "SSE", type = "l")
+sse_min <- which.min(reg_summary$rss)
+points(sse_min, reg_summary$rss[sse_min], col ="red", cex = 2, pch = 20)
+
+plot(reg_summary$adjr2, xlab = "Number of Parameters", ylab = "Adjusted RSq", type = "l")
+adj_r2_max <- which.max(reg_summary$adjr2)
+points(adj_r2_max, reg_summary$adjr2[adj_r2_max], col ="red", cex = 2, pch = 20)
+
+plot(reg_summary$cp, xlab = "Number of Parameters", ylab = "Cp", type = "l")
+cp_min <- which.min(reg_summary$cp)
+points(cp_min, reg_summary$cp[cp_min], col = "red", cex = 2, pch = 20)
+
+plot(reg_summary$bic, xlab = "Number of Parameters", ylab = "SBC", type = "l")
+bic_min <- which.min(reg_summary$bic)
+points(bic_min, reg_summary$bic[bic_min], col = "red", cex = 2, pch = 20)
+
+print("Adjusted R2")
+coef(regfit_full, adj_r2_max)
+print("Cp")
+coef(regfit_full, cp_min)
+print("SBC")
+coef(regfit_full, bic_min)
+
+empty_model <- lm(k~1, bas)
+full_model <- lm(k~., bas)
+step_model <- stepAIC(empty_model, direction = "forward", scope = list(upper=full_model, lower=empty_model), trace = 0)
+summary(step_model)
