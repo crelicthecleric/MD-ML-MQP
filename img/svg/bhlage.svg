@@ -366,7 +366,7 @@
 <text x='365.24' y='361.10' text-anchor='middle' style='font-size: 24.00px;fill: #4D4D4D; font-family: "Arial";' textLength='26.70px' lengthAdjust='spacingAndGlyphs'>40</text>
 <text x='498.42' y='361.10' text-anchor='middle' style='font-size: 24.00px;fill: #4D4D4D; font-family: "Arial";' textLength='26.70px' lengthAdjust='spacingAndGlyphs'>60</text>
 <text x='326.14' y='388.94' text-anchor='middle' style='font-size: 28.00px; font-family: "Arial";' textLength='49.82px' lengthAdjust='spacingAndGlyphs'>Age</text>
-<text transform='translate(25.52,207.08) rotate(-90)' text-anchor='middle' style='font-size: 28.00px; font-family: "Arial";' textLength='356.45px' lengthAdjust='spacingAndGlyphs'>Brooke Hips and Legs Score</text>
+<text transform='translate(25.52,207.08) rotate(-90)' text-anchor='middle' style='font-size: 28.00px; font-family: "Arial";' textLength='133.86px' lengthAdjust='spacingAndGlyphs'>VLE Score</text>
 <rect x='577.43' y='159.42' width='112.13' height='95.32' style='stroke-width: 1.07; stroke: none; fill: #FFFFFF;' />
 <text x='582.91' y='187.90' style='font-size: 28.00px; font-family: "Arial";' textLength='101.17px' lengthAdjust='spacingAndGlyphs'>Disease</text>
 <rect x='582.91' y='204.79' width='17.28' height='22.23' style='stroke-width: 1.07; stroke: none; fill: #F2F2F2;' />
@@ -375,7 +375,7 @@
 <line x1='584.63' y1='238.14' x2='598.46' y2='238.14' style='stroke-width: 1.07; stroke: #00BFC4; stroke-linecap: butt;' />
 <text x='614.13' y='224.50' style='font-size: 24.00px; font-family: "Arial";' textLength='53.32px' lengthAdjust='spacingAndGlyphs'>BMD</text>
 <text x='614.13' y='246.73' style='font-size: 24.00px; font-family: "Arial";' textLength='54.65px' lengthAdjust='spacingAndGlyphs'>DMD</text>
-<text x='85.81' y='28.39' style='font-size: 32.00px; font-family: "Arial";' textLength='521.19px' lengthAdjust='spacingAndGlyphs'>Brooke Hips and Legs Score vs. Age</text>
+<text x='85.81' y='28.39' style='font-size: 32.00px; font-family: "Arial";' textLength='266.81px' lengthAdjust='spacingAndGlyphs'>VLE Score vs. Age</text>
 <text x='85.81' y='62.95' style='font-size: 32.00px; font-family: "Arial";' textLength='177.89px' lengthAdjust='spacingAndGlyphs'>by Individual</text>
 </g>
 </svg>

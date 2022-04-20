@@ -50,17 +50,17 @@ basage <- ggplot(bas, aes(x=age, y=Brooke_Arms_and_Shoulders)) +
 
 basreg <- ggplot(bas_fits, aes(x=slope, y=intercept)) +
   geom_point(alpha = 0.5, aes(shape=Disease_Type, color=Genetic_mutation_frame_type)) +
-  ggtitle("Brooke Arms and Shoulders Regression\nSlope vs. Intercept by Disease and Frame Type") +
+  ggtitle("BUE Regression\nSlope vs. Intercept by Disease and Frame Type") +
   labs(x ="Slope", y = "Intercept", shape = "Disease", color = "Frame Type")
 
 bhlage <- ggplot(bhl, aes(x=age, y=Brooke_Hips_and_Legs)) +
   geom_line(aes(group=individual, color=Disease_Type)) +
-  ggtitle("Brooke Hips and Legs Score vs. Age\nby Individual") +
-  labs(x ="Age", y = "Brooke Hips and Legs Score", color = "Disease")
+  ggtitle("VLE Score vs. Age\nby Individual") +
+  labs(x ="Age", y = "VLE Score", color = "Disease")
 
 bhlreg <- ggplot(bhl_fits, aes(x=slope, y=intercept)) +
   geom_point(alpha = 0.5, aes(shape=Disease_Type, color=Genetic_mutation_frame_type)) +
-  ggtitle("Brooke Hips and Legs Regression\nSlope vs. Intercept\nby Disease and Frame Type") +
+  ggtitle("VLE\nSlope vs. Intercept\nby Disease and Frame Type") +
   labs(x ="Slope", y = "Intercept", shape = "Disease", color = "Frame Type")
 
 eoidist <- ggplot(exon_int, aes(exon, fill = type)) + geom_histogram(binwidth=1) +
